@@ -38,3 +38,9 @@ resource "google_dns_record_set" "frontend" {
   rrdatas = ["123.123.123.123]"]
   managed_zone = "zone"
 }
+
+resource "google_storage_bucket" "file_storage" {
+  name          = "test"
+  location      = "EU"
+  force_destroy = false
+}
