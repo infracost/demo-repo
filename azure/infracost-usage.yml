@@ -11,4 +11,4 @@ resource_usage:
     instances: 2 # Number of instances. Only applicable for Premium plan.
   azurerm_linux_virtual_machine.my_vm:
     os_disk:
-      monthly_disk_operations: 2000000 # Number of disk operations (writes, reads, deletes) using a unit size of 256KiB.
+      monthly_disk_operations: 20000 # Number of disk operations (writes, reads, deletes) using a unit size of 256KiB.
