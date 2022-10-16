@@ -1,12 +1,12 @@
 provider "google" {
  credentials = "{\"type\":\"service_account\"}"
- region      = "us-central1"
+ region      = "europe-west1"
 }
 
 resource "google_compute_instance" "instance1" {
  name         = "instance1"
  machine_type = "n1-standard-32" # <<<<< Try changing this to n1-standard-8 to compare the costs
- zone         = "us-central1-a"
+ zone         = "europe-west1-a"
 
  boot_disk {
    initialize_params {
