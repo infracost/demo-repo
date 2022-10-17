@@ -2,13 +2,13 @@ version: 0.1
 
 projects:
   - path: .
-    name: aws
+    name: infra_aws
     usage_file: infracost-usage.yml
 
   - path: azure
-    name: azure
+    name: infra_azure
     usage_file: azure/infracost-usage.yml
 
   - path: google
-    name: google
+    name: infra_google
     usage_file: google/infracost-usage.yml
