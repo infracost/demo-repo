@@ -51,3 +51,12 @@ resource "azurerm_function_app" "my_function" {
   storage_account_name       = "fakestorageaccountname"
   storage_account_access_key = "fake_storage_account_access_key"
 }
+
+resource "azurerm_postgresql_flexible_server" "gp" {
+  name                = "example-psqlflexibleserver"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  storage_mb          = 32768
+
+  sku_name = "GP_Standard_D4s_v3"
+}
