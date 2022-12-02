@@ -1,0 +1,39 @@
+version: '3'
+
+env:
+  INFRACOST_DASHBOARD_API_ENDPOINT: https://dashboard.api.dev.infracost.io
+  INFRACOST_ENABLE_CLOUD: true
+  INFRACOST_VCS_PROVIDER: github
+  INFRACOST_VCS_REPOSITORY_URL: https://github.com/infracost/demo-repo
+  BRANCH: main
+  PR: 1
+
+tasks:
+  infracost:
+    env:
+      INFRACOST_VCS_BASE_BRANCH:
+        sh: echo {{.BRANCH}}
+      INFRACOST_VCS_PULL_REQUEST_ID:
+        sh: echo {{.PR}}
+      INFRACOST_VCS_PULL_REQUEST_URL:
+        sh: echo 'https://github.com/infracost/demo-repo/pull/{{.PR}}'
+      INFRACOST_VCS_PULL_REQUEST_AUTHOR:
+        sh: git log -1 --pretty=format:'%an'
+      INFRACOST_VCS_PULL_REQUEST_TITLE:
+        sh: git log -1 --pretty=format:'%s'
+    cmds:
+      - git checkout main
+      - infracost breakdown --config-file=infracost.yml --format=json --out-file=/tmp/infracost-base.json --show-skipped
+      - git checkout -
+      - |
+        infracost diff --config-file=infracost.yml \
+                       --compare-to=/tmp/infracost-base.json \
+                       --format=json \
+                       --out-file=/tmp/infracost-diff.json \
+                       --show-skipped
+      - |
+        infracost comment github --path=/tmp/infracost-diff.json \
+                                 --repo=infracost/demo-repo \
+                                 --github-token=$GITHUB_TOKEN \
+                                 --pull-request={{.PR}} \
+                                 --behavior=update

@@ -1,0 +1,24 @@
+{
+  "prs": [
+    { "branch": "feat/add-s3-bucket", "base": "main" },
+    { "branch": "chore/change-aws-region", "base": "main" },
+    { "branch": "fix/reduce-lambda-memory", "base": "main" },
+    { "branch": "enhance/google-bump-accelerator", "base": "main" },
+    { "branch": "chore/delete-lambda-function", "base": "main" },
+    { "branch": "feat/add-dynamo-db", "base": "main" },
+    { "branch": "chore/update-dev-env", "base": "development" },
+    { "branch": "feat/azure-add-storage", "base": "main" },
+    { "branch": "enhance/update-usage", "base": "main" },
+    { "branch": "feat/add-s3-bucket-to-dev", "base": "development" },
+    { "branch": "feat/change-instance-os", "base": "main" },
+    { "branch": "feat/azure-add-postgres-server", "base": "development" },
+    { "branch": "feat/azure-change-vm-size", "base": "main" },
+    { "branch": "fix/change-lambda-name", "base": "main" },
+    { "branch": "chore/azure-reduce-disk-operations", "base": "development" },
+    { "branch": "enhance/azure-change-function-location", "base": "main" },
+    { "branch": "chore/google-reduce-machine-size-in-dev", "base": "development" },
+    { "branch": "feat/google-add-storage", "base": "main" },
+    { "branch": "fix/google-reduce-accelerator-count", "base": "main" },
+    { "branch": "chore/google-change-location", "base": "main" },
+  ]
+}
