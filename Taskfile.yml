@@ -2,6 +2,8 @@ version: '3'
 
 env:
   INFRACOST_DASHBOARD_API_ENDPOINT: https://dashboard.api.dev.infracost.io
+  INFRACOST_PRICING_API_ENDPOINT: https://pricing.api.dev.infracost.io
+  INFRACOST_DEFAULT_PRICING_API_ENDPOINT: https://pricing.api.dev.infracost.io
   INFRACOST_ENABLE_CLOUD: true
   INFRACOST_VCS_PROVIDER: github
   INFRACOST_VCS_REPOSITORY_URL: https://github.com/infracost/demo-repo
