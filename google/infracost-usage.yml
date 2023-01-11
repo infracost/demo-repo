@@ -6,3 +6,14 @@ version: 0.1
 resource_usage:
   google_dns_record_set.frontend:
     monthly_queries: 100000000 # Estimated monthly DNS queries
+  google_storage_bucket.file_storage:
+    storage_gb: 150
+    monthly_class_a_operations: 40000
+    monthly_class_b_operations: 20000
+    monthly_data_retrieval_gb: 250
+    monthly_egress_data_transfer_gb:
+      same_continent: 550
+      worldwide: 12500
+      asia: 1500
+      china: 50
+      australia: 250
