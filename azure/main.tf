@@ -43,6 +43,12 @@ resource "azurerm_app_service_plan" "elastic" {
   }
 }
 
+
+resource "azurerm_resource_group" "resource_group" {
+  name     = "example-resources"
+  location = "eastus"
+}
+
 resource "azurerm_function_app" "my_function" {
   name                       = "hello-world"
   location                   = "uksouth" # <<<<< Try changing this to EP3 to compare the costs
@@ -50,4 +56,12 @@ resource "azurerm_function_app" "my_function" {
   app_service_plan_id        = azurerm_app_service_plan.elastic.id
   storage_account_name       = "fakestorageaccountname"
   storage_account_access_key = "fake_storage_account_access_key"
+}
+
+resource "azurerm_storage_account" "file_storage" {
+  name                     = var.storage_account_name
+  resource_group_name      = azurerm_resource_group.resource_group.name
+  location                 = azurerm_resource_group.resource_group.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
