@@ -5,4 +5,4 @@
 version: 0.1
 resource_usage:
   google_dns_record_set.frontend:
-    monthly_queries: 100000000 # Estimated monthly DNS queries
+    monthly_queries: 100000 # Estimated monthly DNS queries
