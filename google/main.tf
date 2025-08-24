@@ -19,7 +19,7 @@ resource "google_compute_instance" "instance1" {
  }
 
   guest_accelerator {
-    type = "nvidia-tesla-t4" # <<<<< Try changing this to nvidia-tesla-p4 to compare the costs
+    type = "nvidia-tesla-p4" # <<<<< Try changing this to nvidia-tesla-p4 to compare the costs
     count = 4
   }
 
