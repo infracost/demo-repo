@@ -29,3 +29,16 @@ resource "aws_lambda_function" "hello_world" {
   runtime       = "nodejs12.x"
   memory_size   = 1024                      # <<<<< Try changing this to 512 to compare costs
 }
+
+resource "aws_dynamodb_table" "users_table" {
+  name           = "Users"
+  billing_mode   = "PROVISIONED"
+  read_capacity  = 5
+  write_capacity = 5
+  hash_key       = "userId"
+
+  attribute {
+    name = "userId"
+    type = "S"
+  }
+}
