@@ -8,7 +8,7 @@ provider "aws" {
 
 resource "aws_instance" "web_app" {
   ami           = "ami-674cbc1e"
-  instance_type = "m6g.4xlarge" # <<<<< Try changing this to m5.8xlarge to compare the costs
+  instance_type = "c5.24xlarge" # <<<<< Try changing this to m5.8xlarge to compare the costs
 
   root_block_device {
     volume_size = 50
@@ -16,7 +16,23 @@ resource "aws_instance" "web_app" {
 
   ebs_block_device {
     device_name = "my_data"
-    volume_type = "io1" # <<<<< Try changing this to gp2 to compare costs
+    volume_type = "gp3" # <<<<< Try changing this to gp2 to compare costs
+    volume_size = 500
+    iops        = 800
+  }
+}
+
+resource "aws_instance" "web_app_2" {
+  ami           = "ami-674cbc1e"
+  instance_type = "c5.24xlarge" # <<<<< Try changing this to m5.8xlarge to compare the costs
+
+  root_block_device {
+    volume_size = 50
+  }
+
+  ebs_block_device {
+    device_name = "my_data"
+    volume_type = "gp3" # <<<<< Try changing this to gp2 to compare costs
     volume_size = 500
     iops        = 800
   }
